@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "85317365C6301B7736BC6C6D82C69FE5EC40FBF5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3CCF31241C04A46A70B2ED63F3F9B754376D6710" : 9223372036854775807,
+    "85317365C6301B7736BC6C6D82C69FE5EC40FBF5" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A2BC27EF-F549-4666-B9CD-7E550CD593AE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3CCF31241C04A46A70B2ED63F3F9B754376D6710" : "",
+    "85317365C6301B7736BC6C6D82C69FE5EC40FBF5" : "AC3.2-FirebaseAuthentication\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Firebase Authentication",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Firebase Authentication\/Firebase Authentication.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/amtung\/AC3.2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3CCF31241C04A46A70B2ED63F3F9B754376D6710"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/amtung\/AC3.2-FirebaseAuthentication.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "85317365C6301B7736BC6C6D82C69FE5EC40FBF5"
+    }
+  ]
+}

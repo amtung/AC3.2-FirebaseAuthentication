@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fFy-JU-qgB">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="1jj-9I-uMg">
+            <objects>
+                <viewController id="fFy-JU-qgB" customClass="ViewController" customModule="Firebase_Authentication" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="miV-eM-f97"/>
+                        <viewControllerLayoutGuide type="bottom" id="daa-X0-mtK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NhA-Hp-SXU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3N-AR-PQk">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWJ-xv-sKv" userLabel="Content View">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="TSN-IK-m4V">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="b96-cd-tTN"/>
+                                                    <constraint firstAttribute="width" constant="250" id="vU2-2v-9TO"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="TSN-IK-m4V" firstAttribute="centerX" secondItem="dWJ-xv-sKv" secondAttribute="centerX" id="cO3-ju-E8a"/>
+                                            <constraint firstItem="TSN-IK-m4V" firstAttribute="top" secondItem="dWJ-xv-sKv" secondAttribute="top" constant="72" id="gq9-ei-zxh"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0RJ-6V-uMR">
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKh-HS-kJb">
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="fFy-JU-qgB" id="5Of-Mo-4i8"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-kj-RbE">
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="fFy-JU-qgB" id="0P0-AV-Fse"/>
+                                                </connections>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="agN-2g-uEI">
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqS-yf-F3n">
+                                                        <state key="normal" title="Register"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyo-dm-g1H">
+                                                        <state key="normal" title="Sign In"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0RJ-6V-uMR" firstAttribute="centerX" secondItem="dWJ-xv-sKv" secondAttribute="centerX" id="1mV-AI-pQv"/>
+                                    <constraint firstItem="0RJ-6V-uMR" firstAttribute="width" secondItem="dWJ-xv-sKv" secondAttribute="width" multiplier="0.8" id="3VA-O8-lWu"/>
+                                    <constraint firstItem="0RJ-6V-uMR" firstAttribute="top" secondItem="TSN-IK-m4V" secondAttribute="bottom" constant="17" id="OeE-Pg-yco"/>
+                                    <constraint firstItem="dWJ-xv-sKv" firstAttribute="leading" secondItem="s3N-AR-PQk" secondAttribute="leading" id="Rj2-nl-LdX"/>
+                                    <constraint firstItem="dWJ-xv-sKv" firstAttribute="width" secondItem="s3N-AR-PQk" secondAttribute="width" id="SWu-1I-usy"/>
+                                    <constraint firstItem="dWJ-xv-sKv" firstAttribute="top" secondItem="s3N-AR-PQk" secondAttribute="top" id="VbC-8e-L6D"/>
+                                    <constraint firstAttribute="trailing" secondItem="dWJ-xv-sKv" secondAttribute="trailing" id="j0l-MF-KKF"/>
+                                    <constraint firstAttribute="bottom" secondItem="dWJ-xv-sKv" secondAttribute="bottom" id="nuz-3J-TFe"/>
+                                    <constraint firstItem="0RJ-6V-uMR" firstAttribute="bottom" secondItem="dWJ-xv-sKv" secondAttribute="bottom" id="zRO-XA-L6u"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="s3N-AR-PQk" firstAttribute="leading" secondItem="NhA-Hp-SXU" secondAttribute="leading" id="9vv-g5-obf"/>
+                            <constraint firstAttribute="trailing" secondItem="s3N-AR-PQk" secondAttribute="trailing" id="FLH-2w-LTb"/>
+                            <constraint firstItem="daa-X0-mtK" firstAttribute="top" secondItem="s3N-AR-PQk" secondAttribute="bottom" id="Z5L-tj-gY8"/>
+                            <constraint firstItem="s3N-AR-PQk" firstAttribute="top" secondItem="miV-eM-f97" secondAttribute="bottom" id="arb-cU-0o9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="yKh-HS-kJb" id="mpY-hd-lT8"/>
+                        <outlet property="passwordField" destination="bdQ-kj-RbE" id="5FN-7t-7hu"/>
+                        <outlet property="scrollView" destination="s3N-AR-PQk" id="xUA-ir-1pm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="97p-cD-KiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="175"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo" width="353" height="346"/>
+    </resources>
+</document>
