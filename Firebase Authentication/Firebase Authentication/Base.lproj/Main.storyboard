@@ -29,11 +29,18 @@
                                                     <constraint firstAttribute="width" constant="250" id="vU2-2v-9TO"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h1-Ng-qAj">
+                                                <frame key="frameInset" minX="40" minY="292" width="327" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="TSN-IK-m4V" firstAttribute="centerX" secondItem="dWJ-xv-sKv" secondAttribute="centerX" id="cO3-ju-E8a"/>
-                                            <constraint firstItem="TSN-IK-m4V" firstAttribute="top" secondItem="dWJ-xv-sKv" secondAttribute="top" constant="72" id="gq9-ei-zxh"/>
+                                            <constraint firstItem="TSN-IK-m4V" firstAttribute="top" secondItem="dWJ-xv-sKv" secondAttribute="top" constant="50" id="gq9-ei-zxh"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0RJ-6V-uMR">
@@ -58,9 +65,15 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqS-yf-F3n">
                                                         <state key="normal" title="Register"/>
+                                                        <connections>
+                                                            <action selector="signingUp:" destination="fFy-JU-qgB" eventType="touchUpInside" id="1lh-2I-JOk"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyo-dm-g1H">
                                                         <state key="normal" title="Sign In"/>
+                                                        <connections>
+                                                            <action selector="signingIn:" destination="fFy-JU-qgB" eventType="touchUpInside" id="Tbm-Vd-Dlx"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -70,7 +83,7 @@
                                 <constraints>
                                     <constraint firstItem="0RJ-6V-uMR" firstAttribute="centerX" secondItem="dWJ-xv-sKv" secondAttribute="centerX" id="1mV-AI-pQv"/>
                                     <constraint firstItem="0RJ-6V-uMR" firstAttribute="width" secondItem="dWJ-xv-sKv" secondAttribute="width" multiplier="0.8" id="3VA-O8-lWu"/>
-                                    <constraint firstItem="0RJ-6V-uMR" firstAttribute="top" secondItem="TSN-IK-m4V" secondAttribute="bottom" constant="17" id="OeE-Pg-yco"/>
+                                    <constraint firstItem="0RJ-6V-uMR" firstAttribute="top" secondItem="TSN-IK-m4V" secondAttribute="bottom" constant="20" id="OeE-Pg-yco"/>
                                     <constraint firstItem="dWJ-xv-sKv" firstAttribute="leading" secondItem="s3N-AR-PQk" secondAttribute="leading" id="Rj2-nl-LdX"/>
                                     <constraint firstItem="dWJ-xv-sKv" firstAttribute="width" secondItem="s3N-AR-PQk" secondAttribute="width" id="SWu-1I-usy"/>
                                     <constraint firstItem="dWJ-xv-sKv" firstAttribute="top" secondItem="s3N-AR-PQk" secondAttribute="top" id="VbC-8e-L6D"/>
@@ -92,11 +105,13 @@
                         <outlet property="emailField" destination="yKh-HS-kJb" id="mpY-hd-lT8"/>
                         <outlet property="passwordField" destination="bdQ-kj-RbE" id="5FN-7t-7hu"/>
                         <outlet property="scrollView" destination="s3N-AR-PQk" id="xUA-ir-1pm"/>
+                        <outlet property="signinButton" destination="Tyo-dm-g1H" id="WdI-hg-eae"/>
+                        <outlet property="userEmailLabel" destination="1h1-Ng-qAj" id="0V1-1r-NEJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="97p-cD-KiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="230" y="175"/>
+            <point key="canvasLocation" x="229.59999999999999" y="174.96251874062969"/>
         </scene>
     </scenes>
     <resources>

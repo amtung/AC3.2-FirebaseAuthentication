@@ -7,22 +7,28 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var signinButton: UIButton!
     var activeField: UITextField?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerForKeyboardNotifications()
-        
+        updateInterface()
+        addGestureToDissmissKeyboard()
+    }
+    
+    func addGestureToDissmissKeyboard() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
         view.addGestureRecognizer(gesture)
-        
     }
     
     func dissmissKeyboard() {
@@ -91,5 +97,65 @@ class ViewController: UIViewController, UITextFieldDelegate {
         activeField = nil
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.passwordField {
+            self.view.endEditing(true)
+            return false
+        }
+        return true
+    }
+    
+    private func updateInterface() {
+        if let user = FIRAuth.auth()?.currentUser {
+        self.userEmailLabel.text = user.email
+        self.signinButton.setTitle("Sign Out", for: .normal)
+        } else {
+            self.userEmailLabel.text = ""
+            self.signinButton.setTitle("Sign In", for: .normal)
+        }
+    }
+    
+    @IBAction func signingUp(_ sender: UIButton) {
+        if let email = emailField.text,
+            let password = passwordField.text {
+            
+            FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
+                if user != nil {
+                    self.updateInterface()
+                } else {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
+        
+    }
+    
+    @IBAction func signingIn(_ sender: UIButton) {
+        if FIRAuth.auth()?.currentUser != nil {
+            do {
+                try FIRAuth.auth()?.signOut()
+                self.updateInterface()
+            } catch {
+                print(error)
+            }
+        }
+        else if let email = emailField.text,
+            let password = passwordField.text {
+            FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
+                if user != nil {
+                    self.updateInterface()
+                } else {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
+    }
 }
+
 
