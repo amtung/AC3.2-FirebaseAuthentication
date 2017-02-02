@@ -79,6 +79,14 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJv-xB-Uxd">
+                                        <rect key="frame" x="149" y="380" width="77" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Facebook"/>
+                                        <connections>
+                                            <action selector="facebookLoginClicked:" destination="fFy-JU-qgB" eventType="touchUpInside" id="gMa-Yx-epw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="0RJ-6V-uMR" firstAttribute="centerX" secondItem="dWJ-xv-sKv" secondAttribute="centerX" id="1mV-AI-pQv"/>
@@ -103,6 +111,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="yKh-HS-kJb" id="mpY-hd-lT8"/>
+                        <outlet property="facebookLogin" destination="cJv-xB-Uxd" id="0rR-dV-DRV"/>
                         <outlet property="passwordField" destination="bdQ-kj-RbE" id="5FN-7t-7hu"/>
                         <outlet property="scrollView" destination="s3N-AR-PQk" id="xUA-ir-1pm"/>
                         <outlet property="signinButton" destination="Tyo-dm-g1H" id="WdI-hg-eae"/>

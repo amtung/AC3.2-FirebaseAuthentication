@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9CC6A9611E42A08500E9843A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC6A9601E42A08500E9843A /* FBSDKLoginKit.framework */; };
 		9CE3E4EE1E4245CF005937B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE3E4ED1E4245CF005937B8 /* AppDelegate.swift */; };
 		9CE3E4F01E4245CF005937B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE3E4EF1E4245CF005937B8 /* ViewController.swift */; };
 		9CE3E4F31E4245CF005937B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE3E4F11E4245CF005937B8 /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* Begin PBXFileReference section */
 		002C5B7BD75A1EB3FC3A7D13 /* Pods-Firebase Authentication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Firebase Authentication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Firebase Authentication/Pods-Firebase Authentication.debug.xcconfig"; sourceTree = "<group>"; };
 		263B43095F918CD1C1CD7EF9 /* Pods_Firebase_Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Firebase_Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CC6A9601E42A08500E9843A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		9CC6A9621E42A2B000E9843A /* Firebase Authentication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Firebase Authentication.entitlements"; sourceTree = "<group>"; };
 		9CE3E4EA1E4245CE005937B8 /* Firebase Authentication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Firebase Authentication.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE3E4ED1E4245CF005937B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE3E4EF1E4245CF005937B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CC6A9611E42A08500E9843A /* FBSDKLoginKit.framework in Frameworks */,
 				A5E98BAF85D262BC8A7BEAE2 /* Pods_Firebase_Authentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +76,7 @@
 		9CE3E4EC1E4245CF005937B8 /* Firebase Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				9CC6A9621E42A2B000E9843A /* Firebase Authentication.entitlements */,
 				9CE3E4FF1E424632005937B8 /* GoogleService-Info.plist */,
 				9CE3E4ED1E4245CF005937B8 /* AppDelegate.swift */,
 				9CE3E4EF1E4245CF005937B8 /* ViewController.swift */,
@@ -86,6 +91,7 @@
 		DBE9DB79CA6CA5DDAE2432E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CC6A9601E42A08500E9843A /* FBSDKLoginKit.framework */,
 				263B43095F918CD1C1CD7EF9 /* Pods_Firebase_Authentication.framework */,
 			);
 			name = Frameworks;
@@ -128,6 +134,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 9F7X637BX9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -341,10 +352,15 @@
 			baseConfigurationReference = 002C5B7BD75A1EB3FC3A7D13 /* Pods-Firebase Authentication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Firebase Authentication/Firebase Authentication.entitlements";
 				DEVELOPMENT_TEAM = 9F7X637BX9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Firebase Authentication/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = e;
+				PRODUCT_BUNDLE_IDENTIFIER = "tung.annie.c4q.Firebase-Authentication";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -355,10 +371,16 @@
 			baseConfigurationReference = C72BEFD4CDE8BB9C17B4A630 /* Pods-Firebase Authentication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Firebase Authentication/Firebase Authentication.entitlements";
 				DEVELOPMENT_TEAM = 9F7X637BX9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = " ~/Documents/FacebookSDK";
 				INFOPLIST_FILE = "Firebase Authentication/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = e;
+				PRODUCT_BUNDLE_IDENTIFIER = "tung.annie.c4q.Firebase-Authentication";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -383,6 +405,7 @@
 				9CE3E4FE1E4245CF005937B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

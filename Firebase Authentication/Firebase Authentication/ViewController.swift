@@ -7,23 +7,46 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 import FirebaseAuth
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
     
+    @IBOutlet weak var facebookLogin: UIButton!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var signinButton: UIButton!
     var activeField: UITextField?
+    let loginButton = FBSDKLoginButton()
+    let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loginButton.delegate = self
         registerForKeyboardNotifications()
-        updateInterface()
         addGestureToDissmissKeyboard()
+        // listening for updates to objects
+        let _ = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            self.updateInterface()
+        })
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Logging out")
+    }
+    
+    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
+        return true
     }
     
     func addGestureToDissmissKeyboard() {
@@ -107,8 +130,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     private func updateInterface() {
         if let user = FIRAuth.auth()?.currentUser {
-        self.userEmailLabel.text = user.email
-        self.signinButton.setTitle("Sign Out", for: .normal)
+            self.userEmailLabel.text = user.email
+            self.signinButton.setTitle("Sign Out", for: .normal)
         } else {
             self.userEmailLabel.text = ""
             self.signinButton.setTitle("Sign In", for: .normal)
@@ -121,7 +144,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
                 if user != nil {
-                    self.updateInterface()
+//                    self.updateInterface()
                 } else {
                     let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -146,7 +169,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let password = passwordField.text {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
                 if user != nil {
-                    self.updateInterface()
+//                    self.updateInterface()
                 } else {
                     let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -156,6 +179,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             })
         }
     }
+    
+    @IBAction func facebookLoginClicked(_ sender: UIButton) {
+    }
+    
 }
 
 
