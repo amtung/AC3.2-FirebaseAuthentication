@@ -9,10 +9,11 @@
 import UIKit
 import FBSDKLoginKit
 import FirebaseAuth
+import FBSDKLoginKit
+import FBSDKCoreKit
 
 class ViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
     
-    @IBOutlet weak var facebookLogin: UIButton!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -20,12 +21,15 @@ class ViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDel
     @IBOutlet weak var signinButton: UIButton!
     var activeField: UITextField?
     let loginButton = FBSDKLoginButton()
-    let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+//    let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loginButton.delegate = self
+        self.view.addSubview(loginButton)
+        configureFbLoginButton()
+
         registerForKeyboardNotifications()
         addGestureToDissmissKeyboard()
         // listening for updates to objects
@@ -34,20 +38,33 @@ class ViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDel
         })
     }
     
+    // MARK: - Facebook login
+    
+    func configureFbLoginButton() {
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
+    }
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
             print(error.localizedDescription)
             return
         }
+        print("Logged into facebook")
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Logging out")
+        print("Logging out of facebook!")
     }
     
     func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
         return true
     }
+    
+    // MARK: - Keyboard
     
     func addGestureToDissmissKeyboard() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
@@ -179,10 +196,6 @@ class ViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDel
             })
         }
     }
-    
-    @IBAction func facebookLoginClicked(_ sender: UIButton) {
-    }
-    
 }
 
 

@@ -40,7 +40,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="TSN-IK-m4V" firstAttribute="centerX" secondItem="dWJ-xv-sKv" secondAttribute="centerX" id="cO3-ju-E8a"/>
-                                            <constraint firstItem="TSN-IK-m4V" firstAttribute="top" secondItem="dWJ-xv-sKv" secondAttribute="top" constant="50" id="gq9-ei-zxh"/>
+                                            <constraint firstItem="TSN-IK-m4V" firstAttribute="top" secondItem="dWJ-xv-sKv" secondAttribute="top" constant="75" id="gq9-ei-zxh"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0RJ-6V-uMR">
@@ -79,14 +79,6 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJv-xB-Uxd">
-                                        <rect key="frame" x="149" y="380" width="77" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Facebook"/>
-                                        <connections>
-                                            <action selector="facebookLoginClicked:" destination="fFy-JU-qgB" eventType="touchUpInside" id="gMa-Yx-epw"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="0RJ-6V-uMR" firstAttribute="centerX" secondItem="dWJ-xv-sKv" secondAttribute="centerX" id="1mV-AI-pQv"/>
@@ -111,7 +103,6 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="yKh-HS-kJb" id="mpY-hd-lT8"/>
-                        <outlet property="facebookLogin" destination="cJv-xB-Uxd" id="0rR-dV-DRV"/>
                         <outlet property="passwordField" destination="bdQ-kj-RbE" id="5FN-7t-7hu"/>
                         <outlet property="scrollView" destination="s3N-AR-PQk" id="xUA-ir-1pm"/>
                         <outlet property="signinButton" destination="Tyo-dm-g1H" id="WdI-hg-eae"/>
